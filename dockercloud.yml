@@ -1,0 +1,11 @@
+logspout-restart:
+  cpu_shares: 128
+  image: 'ograhl/logspout-restart'
+  links:
+    - logspout
+  mem_limit: 64m
+  restart: always
+  roles:
+    - global
+  volumes:
+    - '/var/lib/docker/containers:/var/lib/docker/containers:ro'
