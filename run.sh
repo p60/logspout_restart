@@ -12,16 +12,14 @@ do
   if [ $logbytes -lt $last_logbytes ]; then
 
     # Size has been reduced since last poll; Restart logspout
-
-    # We are assuming that the logspout service is named LOGSPOUT.
-    service_url=${SAURON_PRODUCTION_LOGSPOUT_ENV_DOCKERCLOUD_SERVICE_API_URL}
+    container_url=${SAURON_PRODUCTION_LOGSPOUT_ENV_DOCKERCLOUD_CONTAINER_API_URL}
 
     echo "Restarting Logspout..."
-    echo "Hitting endpoint ${SAURON_PRODUCTION_LOGSPOUT_ENV_DOCKERCLOUD_SERVICE_API_URL}"
+    echo "Hitting endpoint ${container_url}"
 
-    curl -sS -X POST -H "Authorization: $DOCKERCLOUD_AUTH" -H "Accept: application/json" ${service_url}stop/
+    curl -sS -X POST -H "Authorization: $DOCKERCLOUD_AUTH" -H "Accept: application/json" ${container_url}stop/
     sleep 5
-    curl -sS -X POST -H "Authorization: $DOCKERCLOUD_AUTH" -H "Accept: application/json" ${service_url}start/
+    curl -sS -X POST -H "Authorization: $DOCKERCLOUD_AUTH" -H "Accept: application/json" ${container_url}start/
     echo ""
 
   fi
