@@ -14,9 +14,11 @@ do
     # Size has been reduced since last poll; Restart logspout
 
     # We are assuming that the logspout service is named LOGSPOUT.
-    service_url=${SAURON_PRODUCTION_LOGSTASH_ENV_DOCKERCLOUD_SERVICE_API_URL}
+    service_url=${SAURON_PRODUCTION_LOGSPOUT_ENV_DOCKERCLOUD_SERVICE_API_URL}
 
     echo "Restarting Logspout..."
+    echo "Hitting endpoint ${SAURON_PRODUCTION_LOGSPOUT_ENV_DOCKERCLOUD_SERVICE_API_URL}"
+
     curl -sS -X POST -H "Authorization: $DOCKERCLOUD_AUTH" -H "Accept: application/json" ${service_url}stop/
     sleep 5
     curl -sS -X POST -H "Authorization: $DOCKERCLOUD_AUTH" -H "Accept: application/json" ${service_url}start/
