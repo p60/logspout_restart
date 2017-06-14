@@ -18,7 +18,7 @@ do
     echo "Hitting endpoint ${container_url}"
 
     curl -sS -X POST -H "Authorization: $DOCKERCLOUD_AUTH" -H "Accept: application/json" ${container_url}stop/
-    sleep 5
+    sleep 10
     curl -sS -X POST -H "Authorization: $DOCKERCLOUD_AUTH" -H "Accept: application/json" ${container_url}start/
     echo ""
 
