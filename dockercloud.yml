@@ -1,6 +1,6 @@
 logspout-restart:
   cpu_shares: 128
-  image: 'ograhl/logspout-restart'
+  image: 'p60publish/logspout-restart'
   links:
     - logspout
   mem_limit: 64m

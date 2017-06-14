@@ -1,5 +1,5 @@
 FROM alpine
-MAINTAINER Oliver Grahl <og@grahl-software.com>
+MAINTAINER reactiondata <jayre@reactiondata.com>
 
 RUN apk --no-cache add curl
 
